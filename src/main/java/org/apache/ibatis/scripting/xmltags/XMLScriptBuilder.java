@@ -34,6 +34,7 @@ import org.w3c.dom.NodeList;
  */
 public class XMLScriptBuilder extends BaseBuilder {
 
+
   private XNode context;
   private boolean isDynamic;
   private Class<?> parameterType;
@@ -48,6 +49,10 @@ public class XMLScriptBuilder extends BaseBuilder {
     this.parameterType = parameterType;
   }
 
+  /**
+   * Mybatis解析select|insert|update|delete标签体内配置的sql是通过XMLScriptBuilder类的parseScriptNode方法实现，
+   * @return
+   */
   public SqlSource parseScriptNode() {
     List<SqlNode> contents = parseDynamicTags(context);
     MixedSqlNode rootSqlNode = new MixedSqlNode(contents);
@@ -60,6 +65,11 @@ public class XMLScriptBuilder extends BaseBuilder {
     return sqlSource;
   }
 
+  /**
+   * 解析tag
+   * @param node
+   * @return
+   */
   List<SqlNode> parseDynamicTags(XNode node) {
     List<SqlNode> contents = new ArrayList<SqlNode>();
     NodeList children = node.getNode().getChildNodes();

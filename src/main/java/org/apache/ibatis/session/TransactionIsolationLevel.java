@@ -18,13 +18,19 @@ package org.apache.ibatis.session;
 import java.sql.Connection;
 
 /**
+ * refer: https://www.cnblogs.com/hzhuxin/p/3352758.html
  * @author Clinton Begin
  */
 public enum TransactionIsolationLevel {
+  //表示不支持事务的常量
   NONE(Connection.TRANSACTION_NONE),
+  //不可重复读和虚读可以发生
   READ_COMMITTED(Connection.TRANSACTION_READ_COMMITTED),
+  //表示可以发生脏读 (dirty read)、不可重复读和虚读 (phantom read) 的常量
   READ_UNCOMMITTED(Connection.TRANSACTION_READ_UNCOMMITTED),
+  //虚读可以发生
   REPEATABLE_READ(Connection.TRANSACTION_REPEATABLE_READ),
+  //指示不可以发生脏读、不可重复读和虚读的常量。
   SERIALIZABLE(Connection.TRANSACTION_SERIALIZABLE);
 
   private final int level;

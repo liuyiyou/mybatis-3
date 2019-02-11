@@ -97,6 +97,10 @@ public class XMLConfigBuilder extends BaseBuilder {
     return configuration;
   }
 
+  /**
+   * 解析MyBatis-Config.xml文件
+   * @param root
+   */
   private void parseConfiguration(XNode root) {
     try {
       Properties settings = settingsAsPropertiess(root.evalNode("settings"));

@@ -16,6 +16,7 @@
 package org.apache.ibatis.scripting.xmltags;
 
 /**
+ * @refer  Mybatis sql解析过程  https://blog.csdn.net/u012387062/article/details/55005414
  * @author Clinton Begin
  */
 public interface SqlNode {

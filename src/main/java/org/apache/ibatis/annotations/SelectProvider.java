@@ -21,12 +21,16 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ *  Select语句的动态SQL映射。允许指定一个类名和一个方法在执行时返回运行的查询语句。
+ *  有两个属性: type 和method，type属性是类的完全限定名，method是该类中的那个方法名。
  * @author Clinton Begin
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface SelectProvider {
+  //类的完全限定名
   Class<?> type();
 
+  //method是该类中的那个方法名
   String method();
 }

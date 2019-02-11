@@ -22,6 +22,7 @@ import java.lang.annotation.Target;
 
 /**
  * @author Clinton Begin
+ * 映射查询的SQL语句。
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
