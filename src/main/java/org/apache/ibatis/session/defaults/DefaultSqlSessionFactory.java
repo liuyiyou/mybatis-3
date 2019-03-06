@@ -44,6 +44,7 @@ public class DefaultSqlSessionFactory implements SqlSessionFactory {
 
   @Override
   public SqlSession openSession() {
+    // getDefaultExecutorType =  ExecutorType.SIMPLE;  就是普通的执行器；REUSE 执行器会重用预处理语句（prepared statements）； BATCH 执行器将重用语句并执行批量更新。
     return openSessionFromDataSource(configuration.getDefaultExecutorType(), null, false);
   }
 

@@ -93,22 +93,28 @@ public class XMLConfigBuilder extends BaseBuilder {
       throw new BuilderException("Each XMLConfigBuilder can only be used once.");
     }
     parsed = true;
+    //解析mybatis-config.xml配置文件
     parseConfiguration(parser.evalNode("/configuration"));
     return configuration;
   }
 
   /**
-   * 解析MyBatis-Config.xml文件
+   * 解析MyBatis-Config.xml文件，注意顺序
    * @param root
    */
   private void parseConfiguration(XNode root) {
     try {
+      //解析settings
       Properties settings = settingsAsPropertiess(root.evalNode("settings"));
       //issue #117 read properties first
+      //解析properties
       propertiesElement(root.evalNode("properties"));
       loadCustomVfs(settings);
+      //解析typeAliase
       typeAliasesElement(root.evalNode("typeAliases"));
+      //解析plugins
       pluginElement(root.evalNode("plugins"));
+      //解析objectFactory
       objectFactoryElement(root.evalNode("objectFactory"));
       objectWrapperFactoryElement(root.evalNode("objectWrapperFactory"));
       reflectionFactoryElement(root.evalNode("reflectionFactory"));
@@ -117,6 +123,7 @@ public class XMLConfigBuilder extends BaseBuilder {
       environmentsElement(root.evalNode("environments"));
       databaseIdProviderElement(root.evalNode("databaseIdProvider"));
       typeHandlerElement(root.evalNode("typeHandlers"));
+      //解析 mappers
       mapperElement(root.evalNode("mappers"));
     } catch (Exception e) {
       throw new BuilderException("Error parsing SQL Mapper Configuration. Cause: " + e, e);
@@ -347,6 +354,17 @@ public class XMLConfigBuilder extends BaseBuilder {
     }
   }
 
+  /**
+   * 解析
+   * <pre>
+   *     <mappers>
+   *         <mapper resources="" ></mapper>
+   *         <package name=""></package>
+   *     </mappers>
+   * </pre>
+   * @param parent
+   * @throws Exception
+   */
   private void mapperElement(XNode parent) throws Exception {
     if (parent != null) {
       for (XNode child : parent.getChildren()) {

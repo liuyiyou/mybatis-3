@@ -28,7 +28,10 @@ import org.apache.ibatis.session.defaults.DefaultSqlSessionFactory;
 /*
  * Builds {@link SqlSession} instances.
  *
- */
+ * 通过解析mybatis-config.xml，将数据源、mapper等放到Confiration，并返回 DefaultSqlSessionFactory
+ * DefaultSqlSessionFactory 通过持有Configration 引用并返回给客户端调用比如
+ * @see org.apache.ibatis.session.defaults.DefaultSqlSessionFactory.openSession()
+ *
 /**
  * @author Clinton Begin
  */
