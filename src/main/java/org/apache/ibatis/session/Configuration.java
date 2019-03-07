@@ -95,6 +95,7 @@ import java.util.Set;
  */
 public class Configuration {
 
+    //mybatis-config.xml中的 environment 标签对应的实体类
     protected Environment environment;
     //允许在嵌套语句中使用分页（RowBounds）。
     protected boolean safeRowBoundsEnabled = false;

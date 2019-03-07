@@ -20,6 +20,8 @@ import javax.sql.DataSource;
 import org.apache.ibatis.transaction.TransactionFactory;
 
 /**
+ * mybatis-config.xml中的 environment 标签对应的实体类
+ * @see org.apache.ibatis.builder.xml.XMLConfigBuilder#environmentsElement(org.apache.ibatis.parsing.XNode)
  * @author Clinton Begin
  */
 public final class Environment {
