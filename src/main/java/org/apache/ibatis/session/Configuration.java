@@ -141,10 +141,12 @@ public class Configuration {
     // FULL 会自动映射任意复杂的结果集（无论是否嵌套）。
     protected AutoMappingBehavior autoMappingBehavior = AutoMappingBehavior.PARTIAL;
 
+    //会将mybatis-config.xml中的properites属性放到该类
     protected Properties variables = new Properties();
     protected ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
     protected ObjectFactory objectFactory = new DefaultObjectFactory();
     protected ObjectWrapperFactory objectWrapperFactory = new DefaultObjectWrapperFactory();
+    //mapperRegistry.addMapper
     protected MapperRegistry mapperRegistry = new MapperRegistry(this);
 
     //延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。 特定关联关系中可通过设置fetchType属性来覆盖该项的开关状态
