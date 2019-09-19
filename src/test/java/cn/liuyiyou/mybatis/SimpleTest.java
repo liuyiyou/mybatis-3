@@ -1,6 +1,7 @@
 package cn.liuyiyou.mybatis;
 
 import cn.liuyiyou.mybatis.domain.Blog;
+import cn.liuyiyou.mybatis.mapper.BlogMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -32,7 +33,18 @@ public class SimpleTest {
     }
 
     @Test
-    public void selectOne() throws IOException {
+    public void selectOneByPackage() {
+        SqlSession session = buildSqlSessionFactory().openSession();
+        try {
+            final Blog blog = session.getMapper(BlogMapper.class).selectBlog(1);
+            System.out.println(blog);
+        } finally {
+            session.close();
+        }
+    }
+
+    @Test
+    public void selectOneByResources() throws IOException {
         SqlSession session = buildSqlSessionFactory().openSession();
         try {
             Blog blog = session.selectOne("cn.liuyiyou.mybatis.mapper.BlogMapper.selectBlog", 1);

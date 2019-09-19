@@ -23,8 +23,10 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="cn/liuyiyou/mybatis/mapper/BlogMapper.xml"/>
-        <!--<package name=" "></package>-->
+        <!--<mapper resource="cn/liuyiyou/mybatis/mapper/BlogMapper.xml"/>-->
+        <!--<mapper class="cn.liuyiyou.mybatis.mapper.BlogMapper"></mapper>-->
+        <!--<mapper url="file://ccc"></mapper>-->
+        <package name="cn.liuyiyou.mybatis.mapper"></package>
     </mappers>
 
 </configuration>
