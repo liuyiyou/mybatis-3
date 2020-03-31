@@ -23,6 +23,7 @@ import org.apache.ibatis.scripting.ScriptingException;
 import org.apache.ibatis.type.SimpleTypeRegistry;
 
 /**
+ * 该类与StaticTextSqlNode类不同的是，当静态文本中包含${}占位符时，说明${}需要在Mapper调用时将${}替换为具体的参数值。因此，使用TextSqlNode类来描述。
  * @author Clinton Begin
  */
 public class TextSqlNode implements SqlNode {
@@ -51,7 +52,8 @@ public class TextSqlNode implements SqlNode {
     context.appendSql(parser.parse(text));
     return true;
   }
-  
+
+  //select * from Blog where id = #{id}     order by  ${orderby}
   private GenericTokenParser createParser(TokenHandler handler) {
     return new GenericTokenParser("${", "}", handler);
   }

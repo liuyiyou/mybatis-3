@@ -16,6 +16,7 @@
 package org.apache.ibatis.scripting.xmltags;
 
 /**
+ * 用于描述动态SQL中的静态文本内容
  * 静态sql
  * @author Clinton Begin
  */

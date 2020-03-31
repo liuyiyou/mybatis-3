@@ -10,8 +10,8 @@
     <result property="title" column="title"/>
   </resultMap>
 
-  <select id="selectBlog" parameterType="int" resultMap="BaseResultMap">
-    select * from Blog where id = #{id}
+  <select id="selectBlog"  resultMap="BaseResultMap">
+    select * from Blog where id = #{id}     order by  ${orderby}
   </select>
 
   <!--<select id="selectList" parameterType="map" resultMap="BaseResultMap">-->

@@ -16,6 +16,7 @@
 package org.apache.ibatis.scripting.xmltags;
 
 /**
+ * 用于描述动态SQL中<if>标签的内容，XMLLanguageDriver在解析Mapper SQL配置生成SqlSource时，会对动态SQL中的<if>标签进行解析，将<if>标签转换为IfSqlNode对象。
  * @author Clinton Begin
  */
 public class IfSqlNode implements SqlNode {

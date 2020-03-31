@@ -34,9 +34,9 @@ public class GenericTokenParser {
     }
 
     public String parse(String text) {
-        log.info("Before GenericTokenParser#parse()::" + text);
         StringBuilder builder = new StringBuilder();
         if (text != null && text.length() > 0) {
+            log.info("Before GenericTokenParser#parse()::" + text);
             char[] src = text.toCharArray();
             int offset = 0;
             int start = text.indexOf(openToken, offset);

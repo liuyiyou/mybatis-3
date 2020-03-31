@@ -1,6 +1,7 @@
 package cn.liuyiyou.mybatis.mapper;
 
 import cn.liuyiyou.mybatis.domain.Blog;
+import java.util.Map;
 
 /**
  * @author: liuyiyou.cn
@@ -9,5 +10,5 @@ import cn.liuyiyou.mybatis.domain.Blog;
  */
 public interface BlogMapper {
 
-    Blog selectBlog(int id);
+    Blog selectBlog(Map<String,Object> params);
 }

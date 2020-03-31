@@ -29,6 +29,7 @@ import org.apache.ibatis.scripting.LanguageDriver;
 import org.apache.ibatis.session.Configuration;
 
 /**
+ * MyBatis通过MappedStatement描述<select|update|insert|delete>或者@Select、@Update等注解配置的SQL信息
  * @author Clinton Begin
  */
 public final class MappedStatement {

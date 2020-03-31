@@ -34,6 +34,7 @@ import java.util.Set;
 public class MapperRegistry {
 
   private final Configuration config;
+  //用于注册Mapper接口对应的Class对象和MapperProxyFactory对象对应关系
   private final Map<Class<?>, MapperProxyFactory<?>> knownMappers = new HashMap<Class<?>, MapperProxyFactory<?>>();
 
   public MapperRegistry(Configuration config) {

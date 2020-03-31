@@ -2,6 +2,7 @@ package cn.liuyiyou.mybatis;
 
 import cn.liuyiyou.mybatis.domain.Blog;
 import cn.liuyiyou.mybatis.mapper.BlogMapper;
+import java.util.Map;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -36,7 +37,10 @@ public class SimpleTest {
     public void selectOneByPackage() {
         SqlSession session = buildSqlSessionFactory().openSession();
         try {
-            final Blog blog = session.getMapper(BlogMapper.class).selectBlog(1);
+            Map<String,Object> map = new HashMap<>();
+            map.put("id",1);
+            map.put("orderby","id");
+            final Blog blog = session.getMapper(BlogMapper.class).selectBlog(map);
             System.out.println(blog);
         } finally {
             session.close();
