@@ -36,7 +36,7 @@ public class GenericTokenParser {
     public String parse(String text) {
         StringBuilder builder = new StringBuilder();
         if (text != null && text.length() > 0) {
-            log.info("Before GenericTokenParser#parse()::" + text);
+//            log.info("Before GenericTokenParser#parse()::" + text);
             char[] src = text.toCharArray();
             int offset = 0;
             int start = text.indexOf(openToken, offset);
@@ -55,7 +55,7 @@ public class GenericTokenParser {
                         offset = start + openToken.length();
                         String content = new String(src, offset, end - offset);
                         builder.append(handler.handleToken(content));
-                        log.info("handler::"+ handler.toString());
+//                        log.info("handler::"+ handler.toString());
                         offset = end + closeToken.length();
                     }
                 }
@@ -65,7 +65,7 @@ public class GenericTokenParser {
                 builder.append(src, offset, src.length - offset);
             }
         }
-        log.info("After GenericTokenParser#parse()::" + builder.toString());
+//        log.info("After GenericTokenParser#parse()::" + builder.toString());
         return builder.toString();
     }
 
