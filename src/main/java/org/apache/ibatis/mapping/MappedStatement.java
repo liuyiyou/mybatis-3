@@ -34,13 +34,23 @@ import org.apache.ibatis.session.Configuration;
  */
 public final class MappedStatement {
 
+  /**
+   * 节点中的id属性，包括命名空间
+   */
   private String resource;
+
+  /**
+   * 配置对象
+   */
   private Configuration configuration;
   private String id;
   private Integer fetchSize;
   private Integer timeout;
   private StatementType statementType;
   private ResultSetType resultSetType;
+  /**
+   * 对应一套SQL语句
+   */
   private SqlSource sqlSource;
   private Cache cache;
   private ParameterMap parameterMap;
@@ -48,6 +58,10 @@ public final class MappedStatement {
   private boolean flushCacheRequired;
   private boolean useCache;
   private boolean resultOrdered;
+
+  /**
+   * Sql类型
+   */
   private SqlCommandType sqlCommandType;
   private KeyGenerator keyGenerator;
   private String[] keyProperties;
@@ -58,6 +72,9 @@ public final class MappedStatement {
   private LanguageDriver lang;
   private String[] resultSets;
 
+  /**
+   * 不对外提供构造方法，而是通过构造者模式
+   */
   MappedStatement() {
     // constructor disabled
   }

@@ -81,6 +81,16 @@ public class CachingExecutor implements Executor {
         return delegate.update(ms, parameterObject);
     }
 
+    /**
+     *
+     * @param ms MappedStatement
+     * @param parameterObject
+     * @param rowBounds
+     * @param resultHandler
+     * @param <E>
+     * @return
+     * @throws SQLException
+     */
     @Override
     public <E> List<E> query(MappedStatement ms, Object parameterObject, RowBounds rowBounds, ResultHandler resultHandler) throws SQLException {
         BoundSql boundSql = ms.getBoundSql(parameterObject);

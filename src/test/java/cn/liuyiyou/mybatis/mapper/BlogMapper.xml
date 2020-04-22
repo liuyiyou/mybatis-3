@@ -11,7 +11,7 @@
   </resultMap>
 
   <select id="selectBlog"  resultMap="BaseResultMap">
-    select * from Blog where id = #{id}     order by  ${orderby}
+    select * from Blog where id = #{id}
   </select>
 
   <!--<select id="selectList" parameterType="map" resultMap="BaseResultMap">-->

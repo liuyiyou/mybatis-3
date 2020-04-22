@@ -250,6 +250,30 @@ public class MapperBuilderAssistant extends BaseBuilder {
     return discriminatorBuilder.build();
   }
 
+  /**
+   * 两个地方调用：1：使用xml方式 XMLStatementBuilder，2：使用注解方式 MapperAnnotationBuilder
+   * @param id
+   * @param sqlSource
+   * @param statementType
+   * @param sqlCommandType
+   * @param fetchSize
+   * @param timeout
+   * @param parameterMap
+   * @param parameterType
+   * @param resultMap
+   * @param resultType
+   * @param resultSetType
+   * @param flushCache
+   * @param useCache
+   * @param resultOrdered
+   * @param keyGenerator
+   * @param keyProperty
+   * @param keyColumn
+   * @param databaseId
+   * @param lang
+   * @param resultSets
+   * @return
+   */
   public MappedStatement addMappedStatement(
       String id,
       SqlSource sqlSource,
